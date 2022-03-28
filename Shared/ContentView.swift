@@ -9,8 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("🏈🏈🏈\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
+            Text("89")
+            HStack {
+                Text("1")
+                Slider(value: .constant(50), in: 1...100)
+                Text("100")
+            }
+        }
     }
 }
 
