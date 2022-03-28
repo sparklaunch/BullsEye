@@ -17,6 +17,9 @@ struct ContentView: View {
                 Slider(value: .constant(50), in: 1...100)
                 Text("100")
             }
+            Button(action: {}) {
+                Text("Hit Me!!")
+            }
         }
     }
 }
