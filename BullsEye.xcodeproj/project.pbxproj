@@ -54,9 +54,9 @@
 		90BE737127F1624800AF987C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				90BE737227F1624800AF987C /* BullsEyeApp.swift */,
-				90BE737327F1624800AF987C /* ContentView.swift */,
-				90BE737427F1624900AF987C /* Assets.xcassets */,
+				90BE739227F292BC00AF987C /* App */,
+				90BE739127F292B000AF987C /* Views */,
+				90BE739027F292AB00AF987C /* Models */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -76,6 +76,30 @@
 				90BE738127F1624900AF987C /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		90BE739027F292AB00AF987C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		90BE739127F292B000AF987C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				90BE737327F1624800AF987C /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		90BE739227F292BC00AF987C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				90BE737227F1624800AF987C /* BullsEyeApp.swift */,
+				90BE737427F1624900AF987C /* Assets.xcassets */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
