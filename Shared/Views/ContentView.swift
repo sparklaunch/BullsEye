@@ -44,7 +44,7 @@ struct ContentView: View {
                         .bold()
                 }
                 .padding(20)
-                .background(.blue)
+                .background(Color("ButtonColor"))
                 .foregroundColor(.white)
                 .cornerRadius(21)
                 .alert("Hello, there!", isPresented: $isAlertVisible) {
@@ -61,7 +61,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-
         ContentView()
             .previewLayout(.fixed(width: 568, height: 320))
     }
