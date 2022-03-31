@@ -12,43 +12,47 @@ struct ContentView: View {
     @State private var sliderValue: Double = 50.0
     @State private var game: Game = Game()
     var body: some View {
-        VStack {
-            Text("🏈🏈🏈\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
-                .bold()
-                .kerning(2)
-                .multilineTextAlignment(.center)
-                .lineSpacing(4)
-                .font(.footnote)
-            Text(String(game.target))
-                .kerning(-1)
-                .fontWeight(.black)
-                .font(.largeTitle)
-            HStack {
-                Text("1")
+        ZStack {
+            Color("BackgroundColor")
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Text("🏈🏈🏈\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
                     .bold()
-                    .font(.body)
-                Slider(value: $sliderValue, in: 1...100)
-                Text("100")
-                    .bold()
-                    .font(.body)
-            }
-            .padding()
-            Button(action: {
-                self.isAlertVisible = true
-            }) {
-                Text("Hit Me!!".uppercased())
-                    .font(.title3)
-                    .bold()
-            }
-            .padding(20)
-            .background(.blue)
-            .foregroundColor(.white)
-            .cornerRadius(21)
-            .alert("Hello, there!", isPresented: $isAlertVisible) {
-                Button("Awesome!") {}
-            } message: {
-                let roundedSliderValue: Int = Int(self.sliderValue.rounded())
-                Text("The slide value is \(roundedSliderValue).\n" + "You scored \(self.game.points(sliderValue: roundedSliderValue)) points this round.")
+                    .kerning(2)
+                    .multilineTextAlignment(.center)
+                    .lineSpacing(4)
+                    .font(.footnote)
+                Text(String(game.target))
+                    .kerning(-1)
+                    .fontWeight(.black)
+                    .font(.largeTitle)
+                HStack {
+                    Text("1")
+                        .bold()
+                        .font(.body)
+                    Slider(value: $sliderValue, in: 1...100)
+                    Text("100")
+                        .bold()
+                        .font(.body)
+                }
+                .padding()
+                Button(action: {
+                    self.isAlertVisible = true
+                }) {
+                    Text("Hit Me!!".uppercased())
+                        .font(.title3)
+                        .bold()
+                }
+                .padding(20)
+                .background(.blue)
+                .foregroundColor(.white)
+                .cornerRadius(21)
+                .alert("Hello, there!", isPresented: $isAlertVisible) {
+                    Button("Awesome!") {}
+                } message: {
+                    let roundedSliderValue: Int = Int(self.sliderValue.rounded())
+                    Text("The slide value is \(roundedSliderValue).\n" + "You scored \(self.game.points(sliderValue: roundedSliderValue)) points this round.")
+                }
             }
         }
     }
