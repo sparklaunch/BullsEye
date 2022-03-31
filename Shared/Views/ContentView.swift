@@ -44,7 +44,10 @@ struct ContentView: View {
                         .bold()
                 }
                 .padding(20)
-                .background(Color("ButtonColor"))
+                .background(ZStack {
+                    Color("ButtonColor")
+                    LinearGradient(colors: [.white.opacity(0.3), .clear], startPoint: .top, endPoint: .bottom)
+                })
                 .foregroundColor(.white)
                 .cornerRadius(21)
                 .alert("Hello, there!", isPresented: $isAlertVisible) {
