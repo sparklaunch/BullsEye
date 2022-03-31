@@ -32,11 +32,18 @@ struct ContentView: View {
                     .bold()
                     .font(.body)
             }
+            .padding()
             Button(action: {
                 self.isAlertVisible = true
             }) {
-                Text("Hit Me!!")
+                Text("Hit Me!!".uppercased())
+                    .font(.title3)
+                    .bold()
             }
+            .padding(20)
+            .background(.blue)
+            .foregroundColor(.white)
+            .cornerRadius(21)
             .alert("Hello, there!", isPresented: $isAlertVisible) {
                 Button("Awesome!") {}
             } message: {
