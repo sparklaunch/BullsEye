@@ -16,18 +16,7 @@ struct ContentView: View {
             Color("BackgroundColor")
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                Text("🏈🏈🏈\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
-                    .bold()
-                    .kerning(2)
-                    .multilineTextAlignment(.center)
-                    .lineSpacing(4)
-                    .font(.footnote)
-                    .foregroundColor(Color("TextColor"))
-                Text(String(game.target))
-                    .kerning(-1)
-                    .fontWeight(.black)
-                    .font(.largeTitle)
-                    .foregroundColor(Color("TextColor"))
+                InstructionsView()
                 HStack {
                     Text("1")
                         .bold()
@@ -61,6 +50,17 @@ struct ContentView: View {
                     Text("The slide value is \(roundedSliderValue).\n" + "You scored \(self.game.points(sliderValue: roundedSliderValue)) points this round.")
                 }
             }
+        }
+    }
+}
+
+struct InstructionsView: View {
+    @State private var game: Game = Game()
+    var body: some View {
+        VStack {
+            InstructionText(text: "🏈🏈🏈\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
+                .padding(.horizontal, 30)
+            BigNumberText(target: game.target)
         }
     }
 }
