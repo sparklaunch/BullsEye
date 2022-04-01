@@ -66,6 +66,10 @@ struct HitMeButton: View {
         })
         .foregroundColor(.white)
         .cornerRadius(21)
+        .overlay(
+            RoundedRectangle(cornerRadius: 21)
+                .strokeBorder(.white, lineWidth: 2)
+        )
         .alert("Hello, there!", isPresented: $isAlertVisible) {
             Button("Awesome!") {}
         } message: {
