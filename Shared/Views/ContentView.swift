@@ -17,17 +17,7 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 InstructionsView(game: $game)
-                HStack {
-                    Text("1")
-                        .bold()
-                        .font(.body)
-                        .foregroundColor(Color("TextColor"))
-                    Slider(value: $sliderValue, in: 1...100)
-                    Text("100")
-                        .bold()
-                        .font(.body)
-                        .foregroundColor(Color("TextColor"))
-                }
+                SliderView(sliderValue: $sliderValue)
                 .padding()
                 Button(action: {
                     self.isAlertVisible = true
@@ -61,6 +51,17 @@ struct InstructionsView: View {
             InstructionText(text: "🏈🏈🏈\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
                 .padding(.horizontal, 30)
             BigNumberText(target: game.target)
+        }
+    }
+}
+
+struct SliderView: View {
+    @Binding var sliderValue: Double
+    var body: some View {
+        HStack {
+            SliderLabelText(text: "1")
+            Slider(value: $sliderValue, in: 1...100)
+            SliderLabelText(text: "100")
         }
     }
 }
