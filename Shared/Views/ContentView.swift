@@ -16,7 +16,7 @@ struct ContentView: View {
             Color("BackgroundColor")
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                InstructionsView()
+                InstructionsView(game: $game)
                 HStack {
                     Text("1")
                         .bold()
@@ -55,7 +55,7 @@ struct ContentView: View {
 }
 
 struct InstructionsView: View {
-    @State private var game: Game = Game()
+    @Binding var game: Game
     var body: some View {
         VStack {
             InstructionText(text: "🏈🏈🏈\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
