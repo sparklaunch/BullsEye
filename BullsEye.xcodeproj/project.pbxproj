@@ -16,6 +16,7 @@
 		90BE739427F2939100AF987C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE739327F2939100AF987C /* Game.swift */; };
 		90BE73C327F3DC4F00AF987C /* BullsEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE73C227F3DC4F00AF987C /* BullsEyeTests.swift */; };
 		90BE73D427F6724F00AF987C /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE73D327F6724F00AF987C /* TextViews.swift */; };
+		90BE73D627F6822600AF987C /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE73D527F6822600AF987C /* RoundedViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		90BE73C027F3DC4F00AF987C /* BullsEyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BullsEyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90BE73C227F3DC4F00AF987C /* BullsEyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeTests.swift; sourceTree = "<group>"; };
 		90BE73D327F6724F00AF987C /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
+		90BE73D527F6822600AF987C /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				90BE737327F1624800AF987C /* ContentView.swift */,
 				90BE73D327F6724F00AF987C /* TextViews.swift */,
+				90BE73D527F6822600AF987C /* RoundedViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			files = (
 				90BE738427F1624900AF987C /* ContentView.swift in Sources */,
 				90BE73D427F6724F00AF987C /* TextViews.swift in Sources */,
+				90BE73D627F6822600AF987C /* RoundedViews.swift in Sources */,
 				90BE739427F2939100AF987C /* Game.swift in Sources */,
 				90BE738227F1624900AF987C /* BullsEyeApp.swift in Sources */,
 			);
