@@ -13,8 +13,7 @@ struct ContentView: View {
     @State private var game: Game = Game()
     var body: some View {
         ZStack {
-            Color("BackgroundColor")
-                .edgesIgnoringSafeArea(.all)
+            BackgroundView(game: $game)
             VStack {
                 InstructionsView(game: $game)
                 SliderView(sliderValue: $sliderValue)
@@ -54,6 +53,8 @@ struct HitMeButton: View {
     var body: some View {
         Button(action: {
             isAlertVisible = true
+            let wonPoints: Int = game.points(sliderValue: Int(sliderValue.rounded()))
+            game.storeScore(with: wonPoints)
         }) {
             Text("Hit Me!!".uppercased())
                 .font(.title3)
@@ -71,7 +72,9 @@ struct HitMeButton: View {
                 .strokeBorder(.white, lineWidth: 2)
         )
         .alert("Hello, there!", isPresented: $isAlertVisible) {
-            Button("Awesome!") {}
+            Button("Awesome!") {
+                game.nextRound()
+            }
         } message: {
             let roundedSliderValue: Int = Int(sliderValue.rounded())
             Text("The slide value is \(roundedSliderValue).\n" + "You scored \(game.points(sliderValue: roundedSliderValue)) points this round.")

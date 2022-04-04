@@ -41,12 +41,22 @@ struct SliderLabelText: View {
     }
 }
 
+struct LabelText: View {
+    let text: String
+    var body: some View {
+        Text(text)
+            .font(.title3)
+            .fontWeight(.regular)
+    }
+}
+
 struct TextViews_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             InstructionText(text: "🏈🏈🏈\nPUT THE BULLSEYE AS CLOSE AS YOU CAN TO")
             BigNumberText(target: 50)
             SliderLabelText(text: "100")
+            LabelText(text: "Score")
         }
         .padding()
         .previewLayout(.sizeThatFits)

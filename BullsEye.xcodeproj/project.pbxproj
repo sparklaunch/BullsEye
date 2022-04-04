@@ -17,6 +17,7 @@
 		90BE73C327F3DC4F00AF987C /* BullsEyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE73C227F3DC4F00AF987C /* BullsEyeTests.swift */; };
 		90BE73D427F6724F00AF987C /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE73D327F6724F00AF987C /* TextViews.swift */; };
 		90BE73D627F6822600AF987C /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE73D527F6822600AF987C /* RoundedViews.swift */; };
+		90BE73D827FAB24B00AF987C /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE73D727FAB24B00AF987C /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		90BE73C227F3DC4F00AF987C /* BullsEyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeTests.swift; sourceTree = "<group>"; };
 		90BE73D327F6724F00AF987C /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		90BE73D527F6822600AF987C /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		90BE73D727FAB24B00AF987C /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				90BE737327F1624800AF987C /* ContentView.swift */,
 				90BE73D327F6724F00AF987C /* TextViews.swift */,
 				90BE73D527F6822600AF987C /* RoundedViews.swift */,
+				90BE73D727FAB24B00AF987C /* BackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90BE73D827FAB24B00AF987C /* BackgroundView.swift in Sources */,
 				90BE738427F1624900AF987C /* ContentView.swift in Sources */,
 				90BE73D427F6724F00AF987C /* TextViews.swift in Sources */,
 				90BE73D627F6822600AF987C /* RoundedViews.swift in Sources */,
