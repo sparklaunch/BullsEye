@@ -12,10 +12,12 @@ struct PointsView: View {
     @Binding var sliderValue: Double
     @Binding var isAlertVisible: Bool
     var body: some View {
+        let roundedValue: Int = Int(sliderValue.rounded())
+        let points: Int = game.points(sliderValue: roundedValue)
         VStack(spacing: 10) {
             InstructionText(text: "The slider's value is".uppercased())
-            BigNumberText(target: Int(sliderValue.rounded()))
-            BodyText(text: "You scored \(game.points(sliderValue: Int(sliderValue.rounded()))) points\n🍺🍺🍺")
+            BigNumberText(target: roundedValue)
+            BodyText(text: "You scored \(points) points\n🍺🍺🍺")
             Button {
                 withAnimation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: .zero)) {
                     game.nextRound()
