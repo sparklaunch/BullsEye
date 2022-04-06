@@ -11,6 +11,15 @@ struct ContentView: View {
     @State private var isAlertVisible: Bool = false
     @State private var sliderValue: Double = 50.0
     @State private var game: Game = Game()
+    @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
+    private var sliderOffset: Double {
+        if orientation == .portrait || orientation == .portraitUpsideDown {
+            return -25.0
+        }
+        else {
+            return -15.0
+        }
+    }
     var body: some View {
         ZStack {
             RingsView()
@@ -21,7 +30,10 @@ struct ContentView: View {
                 .padding()
                 HitMeButton(isAlertVisible: $isAlertVisible, sliderValue: $sliderValue, game: $game)
             }
-            .offset(y: -22.5)
+            .offset(y: sliderOffset)
+        }
+        .onAppear {
+            orientation = UIDevice.current.orientation
         }
     }
 }
@@ -84,15 +96,6 @@ struct HitMeButton: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-        ContentView()
-            .previewLayout(.fixed(width: 568, height: 320))
-            .preferredColorScheme(.dark)
-    }
-}
-
 struct RingsView: View {
     var body: some View {
         GeometryReader { geometry in
@@ -114,5 +117,14 @@ struct RingsView: View {
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
         }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+        ContentView()
+            .previewLayout(.fixed(width: 568, height: 320))
+            .preferredColorScheme(.dark)
     }
 }
