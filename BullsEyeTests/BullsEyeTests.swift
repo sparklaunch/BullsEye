@@ -48,4 +48,9 @@ class BullsEyeTests: XCTestCase {
         let bonusPoint: Int = 100
         XCTAssertEqual(score, 100 + bonusPoint)
     }
+    func testRestart() -> Void {
+        game.restart()
+        XCTAssertEqual(game.score, 0)
+        XCTAssertEqual(game.round, 1)
+    }
 }

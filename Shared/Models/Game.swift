@@ -22,6 +22,11 @@ struct Game {
             return 100 - abs(self.target - sliderValue)
         }
     }
+    mutating func restart() -> Void {
+        score = 0
+        round = 1
+        target = Int.random(in: 1...100)
+    }
     mutating func storeScore(with points: Int) -> Void {
         score += points
     }
