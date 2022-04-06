@@ -14,10 +14,10 @@ struct ContentView: View {
     @State private var orientation: UIDeviceOrientation = UIDevice.current.orientation
     private var sliderOffset: Double {
         if orientation == .portrait || orientation == .portraitUpsideDown {
-            return -25.0
+            return -22.5
         }
         else {
-            return -15.0
+            return -12.5
         }
     }
     var body: some View {

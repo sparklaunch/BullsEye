@@ -51,6 +51,31 @@ struct LabelText: View {
     }
 }
 
+struct BodyText: View {
+    let text: String
+    var body: some View {
+        Text(text)
+            .font(.headline)
+            .multilineTextAlignment(.center)
+    }
+}
+
+struct ButtonText: View {
+    let text: String
+    var body: some View {
+        Text(text)
+            .font(.title3)
+            .fontWeight(.semibold)
+            .foregroundColor(.white)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .background(
+                Color.accentColor
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+    }
+}
+
 struct TextViews_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -58,6 +83,8 @@ struct TextViews_Previews: PreviewProvider {
             BigNumberText(target: 50)
             SliderLabelText(text: "100")
             LabelText(text: "Score")
+            BodyText(text: "You scored 200 points.\n🍻🍻🍻")
+            ButtonText(text: "Start New Round")
         }
         .padding()
         .previewLayout(.sizeThatFits)
