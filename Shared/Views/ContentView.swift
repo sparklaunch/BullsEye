@@ -21,6 +21,7 @@ struct ContentView: View {
                 .padding()
                 HitMeButton(isAlertVisible: $isAlertVisible, sliderValue: $sliderValue, game: $game)
             }
+            .offset(y: -22.5)
         }
     }
 }
@@ -94,21 +95,24 @@ struct ContentView_Previews: PreviewProvider {
 
 struct RingsView: View {
     var body: some View {
-        ZStack {
-            Color("BackgroundColor")
-                .edgesIgnoringSafeArea(.all)
+        GeometryReader { geometry in
             ZStack {
-                ForEach(1...5, id: \.self) { number in
-                    let size: Double = Double(number * 100)
-                    Circle()
-                        .stroke(lineWidth: 25)
-                        .fill(
-                            RadialGradient(colors: [Color("PatternColor")
-                                .opacity(0.8), Color("PatternColor").opacity(.zero)], center: .center, startRadius: 100, endRadius: 300)
-                        )
-                        .frame(width: size, height: size)
+                Color("BackgroundColor")
+                    .edgesIgnoringSafeArea(.all)
+                ZStack {
+                    ForEach(1...10, id: \.self) { number in
+                        let size: Double = Double(number * 100)
+                        Circle()
+                            .stroke(lineWidth: 25)
+                            .fill(
+                                RadialGradient(colors: [Color("PatternColor")
+                                    .opacity(0.8), Color("PatternColor").opacity(.zero)], center: .center, startRadius: 100, endRadius: 500)
+                            )
+                            .frame(width: size, height: size)
+                    }
                 }
             }
+            .frame(width: geometry.size.width, height: geometry.size.height)
         }
     }
 }
