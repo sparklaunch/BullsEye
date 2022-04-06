@@ -16,10 +16,6 @@ struct BackgroundView: View {
             BottomView(game: $game)
         }
         .padding()
-        .background(
-            Color("BackgroundColor")
-                .edgesIgnoringSafeArea(.all)
-        )
     }
 }
 

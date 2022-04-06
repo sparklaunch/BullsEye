@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var game: Game = Game()
     var body: some View {
         ZStack {
+            RingsView()
             BackgroundView(game: $game)
             VStack {
                 InstructionsView(game: $game)
@@ -88,5 +89,24 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .previewLayout(.fixed(width: 568, height: 320))
             .preferredColorScheme(.dark)
+    }
+}
+
+struct RingsView: View {
+    var body: some View {
+        ZStack {
+            Color("BackgroundColor")
+                .edgesIgnoringSafeArea(.all)
+            ZStack {
+                ForEach(1...5, id: \.self) { number in
+                    let size: Double = Double(number * 100)
+                    let transparency: Double = 1.0 - 0.2 * Double(number)
+                    Circle()
+                        .strokeBorder(Color("PatternColor"), lineWidth: 25)
+                        .frame(width: size, height: size)
+                        .opacity(transparency)
+                }
+            }
+        }
     }
 }
