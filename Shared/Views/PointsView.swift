@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct PointsView: View {
-    let game: Game
-    let sliderValue: Int
+    @Binding var game: Game
+    @Binding var sliderValue: Double
+    @Binding var isAlertVisible: Bool
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             InstructionText(text: "The slider's value is".uppercased())
-            BigNumberText(target: sliderValue)
-            BodyText(text: "You scored \(game.points(sliderValue: sliderValue)) points\n🍺🍺🍺")
-            ButtonText(text: "Start New Round")
+            BigNumberText(target: Int(sliderValue.rounded()))
+            BodyText(text: "You scored \(game.points(sliderValue: Int(sliderValue.rounded()))) points\n🍺🍺🍺")
+            Button {
+                withAnimation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: .zero)) {
+                    game.nextRound()
+                    isAlertVisible = false
+                }
+            } label: {
+                ButtonText(text: "Start New Round")
+            }
         }
         .padding()
         .frame(maxWidth: 300)
@@ -28,8 +36,8 @@ struct PointsView: View {
 struct PointsView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PointsView(game: Game(), sliderValue: 30)
-            PointsView(game: Game(), sliderValue: 30)
+            PointsView(game: .constant(Game()), sliderValue: .constant(30), isAlertVisible: .constant(true))
+            PointsView(game: .constant(Game()), sliderValue: .constant(30), isAlertVisible: .constant(true))
                 .preferredColorScheme(.dark)
                 .previewLayout(.fixed(width: 568, height: 320))
         }

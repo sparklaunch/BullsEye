@@ -26,9 +26,16 @@ struct ContentView: View {
             BackgroundView(game: $game)
             VStack {
                 InstructionsView(game: $game)
-                SliderView(sliderValue: $sliderValue)
-                .padding()
-                HitMeButton(isAlertVisible: $isAlertVisible, sliderValue: $sliderValue, game: $game)
+                if !isAlertVisible {
+                    SliderView(sliderValue: $sliderValue)
+                        .padding()
+                }
+                if isAlertVisible {
+                    PointsView(game: $game, sliderValue: $sliderValue, isAlertVisible: $isAlertVisible)
+                }
+                else {
+                    HitMeButton(isAlertVisible: $isAlertVisible, sliderValue: $sliderValue, game: $game)
+                }
             }
             .offset(y: sliderOffset)
         }
@@ -66,7 +73,9 @@ struct HitMeButton: View {
     @Binding var game: Game
     var body: some View {
         Button(action: {
-            isAlertVisible = true
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: .zero)) {
+                isAlertVisible = true
+            }
             let wonPoints: Int = game.points(sliderValue: Int(sliderValue.rounded()))
             game.storeScore(with: wonPoints)
         }) {
@@ -85,14 +94,6 @@ struct HitMeButton: View {
             RoundedRectangle(cornerRadius: 21)
                 .strokeBorder(.white, lineWidth: 2)
         )
-        .alert("Hello, there!", isPresented: $isAlertVisible) {
-            Button("Awesome!") {
-                game.nextRound()
-            }
-        } message: {
-            let roundedSliderValue: Int = Int(sliderValue.rounded())
-            Text("The slide value is \(roundedSliderValue).\n" + "You scored \(game.points(sliderValue: roundedSliderValue)) points this round.")
-        }
     }
 }
 
