@@ -12,7 +12,15 @@ struct Game {
     var score: Int = 0
     var round: Int = 1
     func points(sliderValue: Int) -> Int {
-        return 100 - abs(self.target - sliderValue)
+        if abs(sliderValue - target) == 1 {
+            return 99 + 50
+        }
+        else if sliderValue == target {
+            return 100 + 100
+        }
+        else {
+            return 100 - abs(self.target - sliderValue)
+        }
     }
     mutating func storeScore(with points: Int) -> Void {
         score += points

@@ -26,4 +26,26 @@ class BullsEyeTests: XCTestCase {
         let score: Int = game.points(sliderValue: guess)
         XCTAssertEqual(score, 95)
     }
+    func testNewRound() -> Void {
+        game.nextRound()
+        XCTAssertEqual(game.round, 2)
+    }
+    func testAlmostGotItRightPositive() -> Void {
+        let guess: Int = game.target - 1
+        let score: Int = game.points(sliderValue: guess)
+        let bonusPoint: Int = 50
+        XCTAssertEqual(score, 99 + bonusPoint)
+    }
+    func testAlmostGotItRightNegative() -> Void {
+        let guess: Int = game.target + 1
+        let score: Int = game.points(sliderValue: guess)
+        let bonusPoint: Int = 50
+        XCTAssertEqual(score, 99 + bonusPoint)
+    }
+    func testGotItRight() -> Void {
+        let guess: Int = game.target
+        let score: Int = game.points(sliderValue: guess)
+        let bonusPoint: Int = 100
+        XCTAssertEqual(score, 100 + bonusPoint)
+    }
 }
