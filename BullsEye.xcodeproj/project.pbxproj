@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90763A5427FE541600AB956E /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90763A5327FE541600AB956E /* PointsView.swift */; };
 		90BE738227F1624900AF987C /* BullsEyeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE737227F1624800AF987C /* BullsEyeApp.swift */; };
 		90BE738327F1624900AF987C /* BullsEyeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE737227F1624800AF987C /* BullsEyeApp.swift */; };
 		90BE738427F1624900AF987C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE737327F1624800AF987C /* ContentView.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		90763A5327FE541600AB956E /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
 		90BE737227F1624800AF987C /* BullsEyeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeApp.swift; sourceTree = "<group>"; };
 		90BE737327F1624800AF987C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		90BE737427F1624900AF987C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				90BE73D327F6724F00AF987C /* TextViews.swift */,
 				90BE73D527F6822600AF987C /* RoundedViews.swift */,
 				90BE73D727FAB24B00AF987C /* BackgroundView.swift */,
+				90763A5327FE541600AB956E /* PointsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				90BE738427F1624900AF987C /* ContentView.swift in Sources */,
 				90BE73D427F6724F00AF987C /* TextViews.swift in Sources */,
 				90BE73D627F6822600AF987C /* RoundedViews.swift in Sources */,
+				90763A5427FE541600AB956E /* PointsView.swift in Sources */,
 				90BE739427F2939100AF987C /* Game.swift in Sources */,
 				90BE738227F1624900AF987C /* BullsEyeApp.swift in Sources */,
 			);

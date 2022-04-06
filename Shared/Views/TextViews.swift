@@ -57,6 +57,7 @@ struct BodyText: View {
         Text(text)
             .font(.headline)
             .multilineTextAlignment(.center)
+            .lineSpacing(12)
     }
 }
 
