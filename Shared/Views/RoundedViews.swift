@@ -16,7 +16,7 @@ struct RoundedImageViewStroked: View {
             .padding()
             .overlay(
                 Circle()
-                    .strokeBorder(Color("ButtonStrokeColor"), lineWidth: 2)
+                    .strokeBorder(Color("ButtonStrokeColor"), lineWidth: Constants.General.strokeWidth)
             )
     }
 }
@@ -53,7 +53,7 @@ struct RoundedRectTextView: View {
             .padding()
             .overlay(
                 Capsule(style: .continuous)
-                    .strokeBorder(Color("ButtonColor"), lineWidth: 2)
+                    .strokeBorder(Color("ButtonColor"), lineWidth: Constants.General.strokeWidth)
             )
     }
 }

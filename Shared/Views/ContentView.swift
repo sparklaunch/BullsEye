@@ -29,12 +29,15 @@ struct ContentView: View {
                 if !isAlertVisible {
                     SliderView(sliderValue: $sliderValue)
                         .padding()
+                        .transition(.slide)
                 }
                 if isAlertVisible {
                     PointsView(game: $game, sliderValue: $sliderValue, isAlertVisible: $isAlertVisible)
+                        .transition(.scale)
                 }
                 else {
                     HitMeButton(isAlertVisible: $isAlertVisible, sliderValue: $sliderValue, game: $game)
+                        .transition(.opacity)
                 }
             }
             .offset(y: sliderOffset)
@@ -91,8 +94,8 @@ struct HitMeButton: View {
         .foregroundColor(.white)
         .cornerRadius(21)
         .overlay(
-            RoundedRectangle(cornerRadius: 21)
-                .strokeBorder(.white, lineWidth: 2)
+            RoundedRectangle(cornerRadius: Constants.General.roundRectCornerRadius)
+                .strokeBorder(.white, lineWidth: Constants.General.strokeWidth)
         )
     }
 }
