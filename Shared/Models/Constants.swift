@@ -12,4 +12,9 @@ enum Constants {
         public static let strokeWidth: Double = 2
         public static let roundRectCornerRadius: Double = 21
     }
+    enum Leaderboard {
+        public static let leaderboardScoreColumnWidth: Double = 50
+        public static let leaderboardDateColumnWidth: Double = 70
+        public static let leaderboardMaxRowWidth: Double = 480
+    }
 }

@@ -58,6 +58,20 @@ struct RoundedRectTextView: View {
     }
 }
 
+struct RoundedTextView: View {
+    let text: String
+    var body: some View {
+        Text(text)
+            .font(.title3)
+            .fontWeight(.semibold)
+            .padding()
+            .overlay(
+                Capsule(style: .continuous)
+                    .stroke(lineWidth: 1)
+            )
+    }
+}
+
 struct RoundedViews_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -65,6 +79,7 @@ struct RoundedViews_Previews: PreviewProvider {
             PreviewView()
                 .preferredColorScheme(.dark)
             RoundedRectTextView(text: "200")
+            RoundedTextView(text: "1")
         }
         .padding()
         .previewLayout(.sizeThatFits)

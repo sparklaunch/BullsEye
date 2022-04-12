@@ -77,6 +77,26 @@ struct ButtonText: View {
     }
 }
 
+struct ScoreText: View {
+    let text: String
+    var body: some View {
+        Text(text)
+            .kerning(-1)
+            .foregroundColor(Color("TextColor"))
+            .frame(width: Constants.Leaderboard.leaderboardScoreColumnWidth)
+    }
+}
+
+struct DateText: View {
+    let date: Date
+    var body: some View {
+        Text(date, format: .dateTime)
+            .kerning(-1)
+            .foregroundColor(Color("TextColor"))
+            .frame(width: Constants.Leaderboard.leaderboardDateColumnWidth)
+    }
+}
+
 struct TextViews_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -86,6 +106,7 @@ struct TextViews_Previews: PreviewProvider {
             LabelText(text: "Score")
             BodyText(text: "You scored 200 points.\n🍻🍻🍻")
             ButtonText(text: "Start New Round")
+            ScoreText(text: "459")
         }
         .padding()
         .previewLayout(.sizeThatFits)
