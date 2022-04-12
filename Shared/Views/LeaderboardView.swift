@@ -9,10 +9,14 @@ import SwiftUI
 
 struct LeaderboardView: View {
     var body: some View {
-        VStack(spacing: 10) {
-            HeaderView()
-            LabelView()
-            RowView(index: 1, score: 10, date: Date())
+        ZStack {
+            Color("BackgroundColor")
+                .edgesIgnoringSafeArea(.all)
+            VStack(spacing: 10) {
+                HeaderView()
+                LabelView()
+                RowView(index: 1, score: 10, date: Date())
+            }
         }
     }
 }
@@ -40,9 +44,20 @@ struct RowView: View {
 }
 
 struct HeaderView: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     var body: some View {
         ZStack {
-            BigBoldText(text: "Leaderboard")
+            HStack {
+                if verticalSizeClass == .regular && horizontalSizeClass == .compact {
+                    BigBoldText(text: "Leaderboard")
+                        .padding(.leading)
+                    Spacer()
+                }
+                else {
+                    BigBoldText(text: "Leaderboard")
+                }
+            }
             HStack {
                 Spacer()
                 Button {
@@ -75,6 +90,11 @@ struct LabelView: View {
 
 struct LeaderboardView_Previews: PreviewProvider {
     static var previews: some View {
-        LeaderboardView()
+        Group {
+            LeaderboardView()
+            LeaderboardView()
+                .preferredColorScheme(.dark)
+                .previewInterfaceOrientation(.landscapeLeft)
+        }
     }
 }
