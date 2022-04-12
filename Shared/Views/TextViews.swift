@@ -93,7 +93,10 @@ struct DateText: View {
     let date: Date
     var formattedDate: String {
         let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd HH:mm"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "HH:mm a"
+        dateFormatter.amSymbol = "AM"
+        dateFormatter.pmSymbol = "PM"
         return dateFormatter.string(from: date)
     }
     var body: some View {
@@ -103,6 +106,17 @@ struct DateText: View {
             .kerning(-1)
             .foregroundColor(Color("TextColor"))
             .frame(width: Constants.Leaderboard.leaderboardDateColumnWidth)
+    }
+}
+
+struct BigBoldText: View {
+    let text: String
+    var body: some View {
+        Text(text.uppercased())
+            .kerning(2)
+            .foregroundColor(Color("TextColor"))
+            .font(.title)
+            .fontWeight(.black)
     }
 }
 
@@ -117,6 +131,7 @@ struct TextViews_Previews: PreviewProvider {
             ButtonText(text: "Start New Round")
             ScoreText(text: "459")
             DateText(date: Date())
+            BigBoldText(text: "Leaderboard")
         }
         .padding()
         .previewLayout(.sizeThatFits)

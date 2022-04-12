@@ -9,7 +9,11 @@ import SwiftUI
 
 struct LeaderboardView: View {
     var body: some View {
-        RowView(index: 1, score: 10, date: Date())
+        VStack(spacing: 10) {
+            HeaderView()
+            LabelView()
+            RowView(index: 1, score: 10, date: Date())
+        }
     }
 }
 
@@ -31,6 +35,40 @@ struct RowView: View {
                 .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth)
         )
         .padding(.horizontal)
+        .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)
+    }
+}
+
+struct HeaderView: View {
+    var body: some View {
+        ZStack {
+            BigBoldText(text: "Leaderboard")
+            HStack {
+                Spacer()
+                Button {
+
+                } label: {
+                    RoundedImageViewFilled(systemName: "xmark")
+                        .padding(.trailing)
+                }
+            }
+        }
+    }
+}
+
+struct LabelView: View {
+    var body: some View {
+        HStack {
+            Spacer()
+                .frame(width: 56)
+            Spacer()
+            LabelText(text: "Score")
+                .frame(width: Constants.Leaderboard.leaderboardScoreColumnWidth)
+            Spacer()
+            LabelText(text: "Date")
+                .frame(width: Constants.Leaderboard.leaderboardDateColumnWidth)
+        }
+        .padding(.trailing, 32)
         .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)
     }
 }

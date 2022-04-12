@@ -13,7 +13,7 @@ enum Constants {
         public static let roundRectCornerRadius: Double = 21
     }
     enum Leaderboard {
-        public static let leaderboardScoreColumnWidth: Double = 50
+        public static let leaderboardScoreColumnWidth: Double = 60
         public static let leaderboardDateColumnWidth: Double = 100
         public static let leaderboardMaxRowWidth: Double = 480
     }
