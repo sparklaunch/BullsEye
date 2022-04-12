@@ -29,11 +29,7 @@ struct Game {
         }
     }
     mutating func restart() -> Void {
-        let newLeaderboardEntry: LeaderboardEntry = LeaderboardEntry(score: score, date: Date())
-        leaderboardEntries.append(newLeaderboardEntry)
-        leaderboardEntries.sort {
-            $0.score > $1.score
-        }
+        addToLeaderboard(with: score)
         score = 0
         round = 1
         target = Int.random(in: 1...100)
@@ -44,5 +40,12 @@ struct Game {
     mutating func nextRound() -> Void {
         target = Int.random(in: 1...100)
         round += 1
+    }
+    mutating func addToLeaderboard(with score: Int) -> Void {
+        let newLeaderboardEntry: LeaderboardEntry = LeaderboardEntry(score: score, date: Date())
+        leaderboardEntries.append(newLeaderboardEntry)
+        leaderboardEntries.sort {
+            $0.score > $1.score
+        }
     }
 }
