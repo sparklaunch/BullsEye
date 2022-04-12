@@ -25,9 +25,10 @@ struct RowView: View {
             Spacer()
             DateText(date: date)
         }
+        .padding(.trailing)
         .background(
             RoundedRectangle(cornerRadius: .infinity, style: .continuous)
-                .strokeBorder(Color("LeaderboardColor"), lineWidth: Constants.General.strokeWidth)
+                .strokeBorder(Color("LeaderboardRowColor"), lineWidth: Constants.General.strokeWidth)
         )
         .padding(.horizontal)
         .frame(maxWidth: Constants.Leaderboard.leaderboardMaxRowWidth)

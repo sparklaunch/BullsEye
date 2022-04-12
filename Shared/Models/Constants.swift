@@ -14,7 +14,7 @@ enum Constants {
     }
     enum Leaderboard {
         public static let leaderboardScoreColumnWidth: Double = 50
-        public static let leaderboardDateColumnWidth: Double = 70
+        public static let leaderboardDateColumnWidth: Double = 100
         public static let leaderboardMaxRowWidth: Double = 480
     }
 }

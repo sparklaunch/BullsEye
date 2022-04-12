@@ -81,6 +81,8 @@ struct ScoreText: View {
     let text: String
     var body: some View {
         Text(text)
+            .font(.title3)
+            .bold()
             .kerning(-1)
             .foregroundColor(Color("TextColor"))
             .frame(width: Constants.Leaderboard.leaderboardScoreColumnWidth)
@@ -89,8 +91,15 @@ struct ScoreText: View {
 
 struct DateText: View {
     let date: Date
+    var formattedDate: String {
+        let dateFormatter: DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd HH:mm"
+        return dateFormatter.string(from: date)
+    }
     var body: some View {
-        Text(date, format: .dateTime)
+        return Text(formattedDate)
+            .font(.title3)
+            .bold()
             .kerning(-1)
             .foregroundColor(Color("TextColor"))
             .frame(width: Constants.Leaderboard.leaderboardDateColumnWidth)
@@ -107,6 +116,7 @@ struct TextViews_Previews: PreviewProvider {
             BodyText(text: "You scored 200 points.\n🍻🍻🍻")
             ButtonText(text: "Start New Round")
             ScoreText(text: "459")
+            DateText(date: Date())
         }
         .padding()
         .previewLayout(.sizeThatFits)

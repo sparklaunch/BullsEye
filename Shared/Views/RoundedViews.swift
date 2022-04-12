@@ -67,7 +67,7 @@ struct RoundedTextView: View {
             .padding()
             .overlay(
                 Capsule(style: .continuous)
-                    .stroke(lineWidth: 1)
+                    .strokeBorder(Color("LeaderboardRowColor"), lineWidth: 1)
             )
     }
 }
