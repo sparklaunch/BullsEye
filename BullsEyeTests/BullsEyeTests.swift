@@ -53,4 +53,19 @@ class BullsEyeTests: XCTestCase {
         XCTAssertEqual(game.score, 0)
         XCTAssertEqual(game.round, 1)
     }
+    func testLeaderboard() -> Void {
+        let guess: Int = game.target
+        let score: Int = game.points(sliderValue: guess)
+        let bonusPoint: Int = 100
+        game.storeScore(with: score)
+        game.restart()
+        XCTAssertEqual(game.leaderboardEntries.count, 1)
+        XCTAssertEqual(game.leaderboardEntries[0].score, 100 + bonusPoint)
+        let anotherGuess: Int = game.target
+        let anotherScore: Int = game.points(sliderValue: anotherGuess)
+        game.storeScore(with: anotherScore)
+        game.restart()
+        XCTAssertEqual(game.leaderboardEntries.count, 2)
+        XCTAssertEqual(game.leaderboardEntries[1].score, 100 + bonusPoint)
+    }
 }
