@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LeaderboardView: View {
+    @Binding var game: Game
     @Binding var leaderboardIsShowing: Bool
     var body: some View {
         ZStack {
@@ -16,7 +17,12 @@ struct LeaderboardView: View {
             VStack(spacing: 10) {
                 HeaderView(leaderboardIsShowing: $leaderboardIsShowing)
                 LabelView()
-                RowView(index: 1, score: 10, date: Date())
+                VStack(spacing: 10) {
+                    ForEach(game.leaderboardEntries.indices, id: \.self) { index in
+                        let entry: LeaderboardEntry = game.leaderboardEntries[index]
+                        RowView(index: index, score: entry.score, date: entry.date)
+                    }
+                }
             }
         }
     }
@@ -93,8 +99,8 @@ struct LabelView: View {
 struct LeaderboardView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LeaderboardView(leaderboardIsShowing: .constant(false))
-            LeaderboardView(leaderboardIsShowing: .constant(false))
+            LeaderboardView(game: .constant(Game()), leaderboardIsShowing: .constant(false))
+            LeaderboardView(game: .constant(Game()), leaderboardIsShowing: .constant(false))
                 .preferredColorScheme(.dark)
                 .previewInterfaceOrientation(.landscapeLeft)
         }
