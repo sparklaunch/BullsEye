@@ -18,7 +18,7 @@ struct LeaderboardView: View {
                 HeaderView(leaderboardIsShowing: $leaderboardIsShowing)
                 LabelView()
                 VStack(spacing: 10) {
-                    ForEach(game.leaderboardEntries.indices, id: \.self) { index in
+                    ForEach(game.leaderboardEntries.indices) { index in
                         let entry: LeaderboardEntry = game.leaderboardEntries[index]
                         RowView(index: index, score: entry.score, date: entry.date)
                     }
@@ -36,7 +36,7 @@ struct RowView: View {
         HStack {
             RoundedTextView(text: String(index))
             Spacer()
-            ScoreText(text: String(10))
+            ScoreText(text: String(score))
             Spacer()
             DateText(date: date)
         }
@@ -99,8 +99,8 @@ struct LabelView: View {
 struct LeaderboardView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LeaderboardView(game: .constant(Game()), leaderboardIsShowing: .constant(false))
-            LeaderboardView(game: .constant(Game()), leaderboardIsShowing: .constant(false))
+            LeaderboardView(game: .constant(Game(loadTestData: true)), leaderboardIsShowing: .constant(false))
+            LeaderboardView(game: .constant(Game(loadTestData: true)), leaderboardIsShowing: .constant(false))
                 .preferredColorScheme(.dark)
                 .previewInterfaceOrientation(.landscapeLeft)
         }
