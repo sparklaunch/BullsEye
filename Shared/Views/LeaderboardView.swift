@@ -17,10 +17,12 @@ struct LeaderboardView: View {
             VStack(spacing: 10) {
                 HeaderView(leaderboardIsShowing: $leaderboardIsShowing)
                 LabelView()
-                VStack(spacing: 10) {
-                    ForEach(game.leaderboardEntries.indices) { index in
-                        let entry: LeaderboardEntry = game.leaderboardEntries[index]
-                        RowView(index: index, score: entry.score, date: entry.date)
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(game.leaderboardEntries.indices, id: \.self) { index in
+                            let entry: LeaderboardEntry = game.leaderboardEntries[index]
+                            RowView(index: index, score: entry.score, date: entry.date)
+                        }
                     }
                 }
             }
@@ -66,6 +68,7 @@ struct HeaderView: View {
                     BigBoldText(text: "Leaderboard")
                 }
             }
+            .padding(.top)
             HStack {
                 Spacer()
                 Button {

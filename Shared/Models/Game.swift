@@ -39,12 +39,12 @@ struct Game {
         }
     }
     mutating func restart() -> Void {
-        addToLeaderboard(with: score)
         score = 0
         round = 1
         target = Int.random(in: 1...100)
     }
     mutating func storeScore(with points: Int) -> Void {
+        addToLeaderboard(with: points)
         score += points
     }
     mutating func nextRound() -> Void {
